@@ -1,5 +1,3 @@
-/*global angular*/
-
 /**
  * @ngdoc overview
  * @name delayed-change
@@ -38,7 +36,7 @@
                 var promise; //The promise of the upcoming function call
 
                 ctrl.$viewChangeListeners.push(function () {
-                    angular.isFunction(options.start) && options.start();
+                    if (angular.isFunction(options.start)) options.start();
 
                     //Cancel the pending function call, if any
                     if (promise) {
@@ -50,12 +48,11 @@
 
                         //Trigger end function after (promise) resolve
                         $q.when(result).then(function () {
-                            angular.isFunction(options.end) && options.end();
-                        })
-
+                            if (angular.isFunction(options.end)) options.end();
+                        });
                     }, options.delay);
                 });
             }
-        }
+        };
     }]);
 })();
