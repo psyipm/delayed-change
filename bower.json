@@ -1,7 +1,10 @@
 {
-    "name": "delayed-change",
-    "version": "0.0.1",
-    "dependencies": {
-        "angular": "latest"
-    }
+  "name": "delayed-change",
+  "version": "0.0.1",
+  "main": [
+    "dist/delayed_change.min.js"
+  ],
+  "dependencies": {
+    "angular": "latest"
+  }
 }
